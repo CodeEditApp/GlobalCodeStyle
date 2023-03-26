@@ -1,0 +1,66 @@
+#######################################################################################################################
+# 
+# Global SwiftLint Config
+# CodeEditApp
+#
+#######################################################################################################################
+#
+# This global configuration is used across all repos in the CodeEditApp organization.
+# 
+# They are loaded using:
+#   parent_config: https://<url-to-this-file>.yml
+# 
+# A repo can in certain circumstances override some rules or declare project specific custom rules.
+#
+#######################################################################################################################
+
+# The following default rules are disabled
+disabled_rules:
+  - todo
+  - trailing_comma
+  - nesting
+
+#######################################################################################################################
+
+# The following opt-in rules are enabled
+opt_in_rules:
+  - closure_spacing                     # https://realm.github.io/SwiftLint/closure_spacing.html
+  - contains_over_first_not_nil         # https://realm.github.io/SwiftLint/contains_over_first_not_nil.html
+  - convenience_type                    # https://realm.github.io/SwiftLint/convenience_type.html
+  - empty_count                         # https://realm.github.io/SwiftLint/empty_count.html
+  - missing_docs                        # https://realm.github.io/SwiftLint/missing_docs.html
+  - modifier_order                      # https://realm.github.io/SwiftLint/modifier_order.html
+  - multiline_arguments_brackets        # https://realm.github.io/SwiftLint/multiline_arguments_brackets.html
+  - multiline_parameters_brackets       # https://realm.github.io/SwiftLint/multiline_parameters_brackets.html
+  - pattern_matching_keywords           # https://realm.github.io/SwiftLint/pattern_matching_keywords.html
+
+#######################################################################################################################
+
+# Paths to ignore during linting.
+excluded:
+  - .build
+  - DerivedData  
+
+#######################################################################################################################
+
+# Exclude `id` and `vc` from the identifier_name rule
+identifier_name:
+  excluded:
+    - id
+    - vc
+
+# Exclude `ID` from the type_name rule
+type_name:
+  excluded:
+    - ID
+
+#######################################################################################################################
+
+# Custom Rules
+custom_rules:
+  spaces_over_tabs:
+    included: ".*\\.swift"
+    message: "Prefer spaces for indents over tabs. See Xcode setting: 'Text Editing' -> 'Indentation'"
+    name: "Spaces over Tabs"
+    regex: "\t"
+    severity: warning
